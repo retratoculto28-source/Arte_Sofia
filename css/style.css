@@ -2078,6 +2078,8 @@ h3 {
 .theme-switch__icon {
     font-size: 1rem;
     line-height: 1;
+    color: var(--purple);
+    filter: none;
 }
 
 /* The track — looks like a strip of paper/tape */
