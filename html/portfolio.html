@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Navegue pela galeria completa de trabalhos de Sofia.">
+    <title>A Arte de Sofia | Portfólio</title>
+    <link rel="stylesheet" href="../css/style.css?v=1.1">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+</head>
+
+<body class="portfolio-page">
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                A Arte de Sofia
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Sobre Mim</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="contact.html">Contactos</a></li>
+            </ul>
+            <div class="nav-actions">
+                <label class="theme-switch" for="theme-toggle" aria-label="Alternar tema">
+                    <span class="theme-switch__icon">☀️</span>
+                    <div class="theme-switch__track">
+                        <input type="checkbox" id="theme-toggle" class="theme-switch__input">
+                        <div class="theme-switch__thumb"></div>
+                    </div>
+                    <span class="theme-switch__icon">🌙</span>
+                </label>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Spotify Slide-out -->
+    <div id="spotify-btn" class="spotify-btn">Playlist</div>
+    <div id="spotify-panel" class="spotify-panel">
+        <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/73BxUSHSjRcoliJeAZDlij?utm_source=generator" width="100%"
+            height="380" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+
+    <main class="portfolio-page">
+        <h1>Galeria</h1>
+        <p>Explore todos os meus projetos criativos. Clique em qualquer imagem para ver mais detalhes.</p>
+
+        <div id="portfolio-sections">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <!-- Lightbox Pop-up -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Anterior">&#8592;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Seguinte">&#8594;</button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column branding">
+                <a href="index.html" class="logo">A Arte de Sofia</a>
+                <p>A criar experiências visuais únicas através do design, ilustração e fotografia.</p>
+            </div>
+            <div class="footer-column links">
+                <h4 style="font-family: 'Crimson Pro', serif;">Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Sobre Mim</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="services.html">Serviços</a></li>
+                    <li><a href="contact.html">Contactos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column contact">
+                <h4 style="font-family: 'Crimson Pro', serif;">Fala Comigo</h4>
+                <p><a href="mailto:sofiamonteiro.9@gmail.com">sofiamonteiro.9@gmail.com</a></p>
+                <p><a href="tel:+351934389802">934 389 802</a></p>
+                <div class="social-links">
+                    <a href="https://instagram.com/soh_wish" target="_blank" title="Instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Feito com criatividade por Sofia &copy; 2026</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
