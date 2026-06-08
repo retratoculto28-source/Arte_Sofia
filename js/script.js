@@ -1,4 +1,4 @@
-﻿// Automatically generated file
+// Automatically generated file
 const portfolioData = [
     {
         "id":  1,
@@ -231,16 +231,6 @@ const portfolioData = [
         "date":  "2026-05-29"
     },
     {
-        "id":  24,
-        "title":  "Bloody Ruby",
-        "description":  "",
-        "category":  "Design",
-        "subcategory":  "Figma",
-        "project":  "Bloody Ruby",
-        "imagePath":  "Porfólio/Design/Figma/Identidade Visual/Bloody Ruby/Bloody Ruby.png",
-        "date":  "2026-05-29"
-    },
-    {
         "id":  25,
         "title":  "Convite V2",
         "description":  "",
@@ -269,6 +259,17 @@ const portfolioData = [
         "project":  "Bloody Ruby",
         "imagePath":  "Porfólio/Design/Figma/Identidade Visual/Bloody Ruby/Icon.jpg",
         "date":  "2026-05-29"
+    },
+    {
+        "id":  24,
+        "title":  "Bloody Ruby",
+        "description":  "",
+        "category":  "Design",
+        "subcategory":  "Figma",
+        "project":  "Bloody Ruby",
+        "imagePath":  "Porfólio/Design/Figma/Identidade Visual/Bloody Ruby/Bloody Ruby.png",
+        "date":  "2026-05-29",
+        "specialStyle": "contain"
     },
     {
         "id":  28,
@@ -636,7 +637,7 @@ const portfolioData = [
         "description":  "",
         "category":  "Ilustração",
         "subcategory":  "Figma",
-        "project":  "Bilhete de Viagem.png",
+        "project":  "Geral",
         "imagePath":  "Porfólio/Ilustração/Figma/Bilhete de Viagem.png",
         "date":  "2026-05-29"
     },
@@ -646,7 +647,7 @@ const portfolioData = [
         "description":  "",
         "category":  "Ilustração",
         "subcategory":  "Figma",
-        "project":  "Passaporte.png",
+        "project":  "Geral",
         "imagePath":  "Porfólio/Ilustração/Figma/Passaporte.png",
         "date":  "2026-05-29"
     },
@@ -656,7 +657,7 @@ const portfolioData = [
         "description":  "",
         "category":  "Ilustração",
         "subcategory":  "Ilustrator",
-        "project":  "Aurora.jpg",
+        "project":  "Geral",
         "imagePath":  "Porfólio/Ilustração/Ilustrator/Aurora.jpg",
         "date":  "2026-05-29"
     },
@@ -666,7 +667,7 @@ const portfolioData = [
         "description":  "",
         "category":  "Ilustração",
         "subcategory":  "Ilustrator",
-        "project":  "Eurus.jpg",
+        "project":  "Geral",
         "imagePath":  "Porfólio/Ilustração/Ilustrator/Eurus.jpg",
         "date":  "2026-05-29"
     },
@@ -676,8 +677,8 @@ const portfolioData = [
         "description":  "",
         "category":  "Ilustração",
         "subcategory":  "Ibis Paint X",
-        "project":  "Akira.jpg",
-        "imagePath":  "Porfólio/Ilustração/Ibis Paint X/Akira.jpg",
+        "project":  "Geral",
+        "imagePath":  "Porfólio/Ilustração/Ibis Paint X/Akira.png",
         "date":  "2026-06-08"
     }
 ];
@@ -827,7 +828,16 @@ document.addEventListener('DOMContentLoaded', () => {
             grouped[cat][sub][proj].push(item);
         });
 
-        for (const cat in grouped) {
+        const categoryOrder = ['Design', 'Ilustração', 'Fotografia'];
+        const sortedCats = Object.keys(grouped).sort((a, b) => {
+            let indexA = categoryOrder.indexOf(a);
+            let indexB = categoryOrder.indexOf(b);
+            if (indexA === -1) indexA = 999;
+            if (indexB === -1) indexB = 999;
+            return indexA - indexB;
+        });
+
+        for (const cat of sortedCats) {
             const catHeader = document.createElement('h2');
             catHeader.textContent = cat;
             catHeader.className = 'category-header';
@@ -873,6 +883,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         img.src     = encodeImagePath('../' + item.imagePath);
                         img.alt     = item.title || 'Portfolio Image';
                         img.loading = 'lazy';
+
+                        if (item.specialStyle === 'contain') {
+                            img.classList.add('img-contain');
+                            polaroid.classList.add('polaroid--contain');
+                        }
 
                         // Detect very tall images and span 2 grid rows
                         img.addEventListener('load', () => {
@@ -988,4 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+
 

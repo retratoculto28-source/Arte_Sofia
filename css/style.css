@@ -58,16 +58,101 @@
     --light-purple: #c084fc;
     --blue: #93c5fd;
     --light-blue: #c7d2fe;
-    --bg-paper: #121212;
-    --bg-texture: url('https://www.transparenttextures.com/patterns/dark-paper.png');
+    --bg-paper: #1a1614;
+    --bg-texture: url('https://www.transparenttextures.com/patterns/dark-leather.png');
     --text-dark: #eae3d2;
-    --card-bg: #1e1b18;
-    --header-bg: rgba(18, 18, 18, 0.9);
-    --border-color: #333;
-    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.5);
-    --paper-note-bg: #1e293b;
-    --paper-note-border: #334155;
+    --card-bg: #231f1c;
+    --header-bg: rgba(26, 22, 20, 0.93);
+    --border-color: #3d3530;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+    --paper-note-bg: #1c2333;
+    --paper-note-border: #2e3d5a;
 }
+
+/* Dark mode body layered texture */
+.dark-mode body {
+    background-color: var(--bg-paper);
+    background-image:
+        url('https://www.transparenttextures.com/patterns/dark-leather.png'),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 27px,
+            rgba(167, 139, 250, 0.04) 28px
+        );
+}
+
+/* Dark mode header — more visible border with glow */
+.dark-mode header {
+    border-bottom: 3px solid var(--purple);
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.15);
+}
+
+/* Dark mode paper-note pushpin — change to lavender */
+.dark-mode .paper-note::before {
+    background-color: #a78bfa;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.5), 2px 2px 5px rgba(167,139,250,0.4);
+}
+
+/* Dark mode paper-note — worn parchment feel */
+.dark-mode .paper-note {
+    background-color: var(--paper-note-bg);
+    border: 1px solid var(--paper-note-border);
+    box-shadow: 3px 3px 16px rgba(0,0,0,0.4), inset 0 0 40px rgba(0,0,0,0.08);
+}
+
+/* Dark mode paper-note lined-paper effect */
+.dark-mode .paper-note::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 27px,
+        rgba(167, 139, 250, 0.07) 28px
+    );
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Dark mode service cards — dashed border glows */
+.dark-mode .service-card {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 1px rgba(167,139,250,0.1), 0 6px 20px rgba(0,0,0,0.5);
+    background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+}
+
+/* Dark mode tape — same blue as light mode */
+.dark-mode .tape {
+    background-color: rgba(138, 182, 214, 0.6);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* Dark mode dropdown — textured bg */
+.dark-mode .dropdown-content,
+.dark-mode .dropdown-submenu-content {
+    background-color: #2a2420;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+    border-style: dashed;
+}
+
+/* Dark mode gallery grid lines between sections */
+.dark-mode .category-header {
+    border-color: var(--purple) !important;
+    text-shadow: 0 0 12px rgba(167,139,250,0.25);
+}
+
+/* Dark mode lightbox */
+.dark-mode .lightbox {
+    background: rgba(15, 12, 10, 0.95);
+}
+
+/* Dark mode footer */
+.dark-mode footer {
+    background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+    border-top: 2px dashed var(--purple);
+}
+
 
 * {
     margin: 0;
@@ -228,6 +313,15 @@ main {
 /* Very tall images span 2 grid rows */
 .polaroid--tall {
     grid-row: span 2;
+}
+
+.polaroid--contain {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.polaroid--contain img {
+    object-fit: contain !important;
 }
 
 .polaroid:nth-child(even) {
