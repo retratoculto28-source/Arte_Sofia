@@ -1826,6 +1826,49 @@ h3 {
     border-color: var(--light-blue);
 }
 
+.portfolio-nav-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0 2.5rem;
+    text-align: center;
+}
+
+.portfolio-nav-buttons a {
+    text-decoration: none;
+}
+
+.portfolio-nav-buttons .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.6rem;
+    min-width: 11rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+}
+
+.portfolio-nav-buttons .filter-btn:hover {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+    .portfolio-nav-buttons {
+        justify-content: center;
+    }
+
+    .portfolio-nav-buttons .filter-btn {
+        min-width: unset;
+        width: auto;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
 .filter-btn.active {
     background: var(--purple);
     border-color: var(--purple);

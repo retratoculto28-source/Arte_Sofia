@@ -828,6 +828,28 @@ document.addEventListener('DOMContentLoaded', () => {
             grouped[cat][sub][proj].push(item);
         });
 
+        function formatCategoryId(category) {
+            return category.toLowerCase()
+                .normalize('NFD')
+                .replace(/[ -]/g, function(ch) {
+                    return ch.normalize('NFD').replace(/[ -]/g, '');
+                })
+                .replace(/[ -]/g, '')
+                .replace(/[ -]/g, '')
+                .replace(/[ -]/g, '')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/[^a-z0-9-]/g, '');
+        }
+
+        function formatCategoryId(category) {
+            return category.toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/[^a-z0-9-]/g, '');
+        }
+
         const categoryOrder = ['Design', 'Ilustração', 'Fotografia'];
         const sortedCats = Object.keys(grouped).sort((a, b) => {
             let indexA = categoryOrder.indexOf(a);
@@ -839,6 +861,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (const cat of sortedCats) {
             const catHeader = document.createElement('h2');
+            catHeader.id = formatCategoryId(cat);
             catHeader.textContent = cat;
             catHeader.className = 'category-header';
             catHeader.style.marginTop    = '1.5rem';
